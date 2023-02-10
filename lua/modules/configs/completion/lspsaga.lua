@@ -99,10 +99,15 @@ return function()
 			},
 		},
 		symbol_in_winbar = {
-			enable = false,
+			enable = true,
 			separator = " " .. icons.ui.Separator,
-			hide_keyword = true,
-			show_file = false,
+			-- hide_keyword = true,
+			show_file = true,
+			-- define how to customize filename, eg: %:., %
+			-- if not set, use default value `%:t`
+			-- more information see `vim.fn.expand` or `expand`
+			-- ## only valid after set `show_file = true`
+			file_formatter = "%t",
 			color_mode = true,
 		},
 		beacon = {

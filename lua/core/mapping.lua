@@ -16,6 +16,9 @@ local core_map = {
 	["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("editn: Next search result"),
 	["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("editn: Prev search result"),
 	["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("editn: Join next line"),
+	["n|L"] = map_cmd("$"):with_noremap():with_desc("editn: Jump end of line"),
+	["n|H"] = map_cmd("^"):with_noremap():with_desc("editn: Jump begin of line"),
+
 	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap():with_desc("window: Focus left"),
 	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap():with_desc("window: Focus right"),
 	-- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap():with_desc("window: Focus down"),
