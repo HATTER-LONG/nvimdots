@@ -68,17 +68,17 @@ local plug_map = {
 		:with_desc("terminal: Toggle float"),
 	["t|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["n|<leader>g"] = map_callback(function()
-			_toggle_lazygit()
+			_toggle_gitui()
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("git: Toggle lazygit"),
+		:with_desc("git: Toggle gitui"),
 	["t|<leader>g"] = map_callback(function()
-			_toggle_lazygit()
+			_toggle_gitui()
 		end)
 		:with_noremap()
 		:with_silent()
-		:with_desc("git: Toggle lazygit"),
+		:with_desc("git: Toggle gitui"),
 
 	-- Plugin: trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
@@ -101,7 +101,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<C-p>"] = map_callback(function()
+	["n|<leader>ff"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
@@ -132,7 +132,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()

@@ -37,9 +37,10 @@ return function()
 			"bashls",
 			"clangd",
 			"efm",
-			"gopls",
+			-- "gopls",
 			"pyright",
 			"sumneko_lua",
+			"taplo",
 		},
 	})
 
