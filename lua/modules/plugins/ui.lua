@@ -10,6 +10,20 @@ ui["akinsho/bufferline.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
+
+ui["rebelot/kanagawa.nvim"] = {
+	lazy = false,
+	config = function()
+		require("kanagawa").setup({
+			functionStyle = { bold = true, italic = true },
+			transparent = false, -- do not set background color
+			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+			colors = {},
+			overrides = {},
+		})
+	end,
+}
+
 ui["catppuccin/nvim"] = {
 	lazy = false,
 	name = "catppuccin",
