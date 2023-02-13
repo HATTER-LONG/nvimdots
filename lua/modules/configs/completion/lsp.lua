@@ -37,9 +37,8 @@ return function()
             "bashls",
             "clangd",
             "efm",
-            -- "gopls",
             "pyright",
-            "taplo",
+            "lua_ls",
         },
     })
 
@@ -70,42 +69,36 @@ return function()
                 on_attach = opts.on_attach,
             })
         end,
-
         bashls = function()
             local _opts = require("completion.servers.bashls")
             local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
             nvim_lsp.bashls.setup(final_opts)
         end,
-
         clangd = function()
             local _capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, capabilities)
             local _opts = require("completion.servers.clangd")
             local final_opts =
-            vim.tbl_deep_extend("keep", _opts, { on_attach = opts.on_attach, capabilities = _capabilities })
+                vim.tbl_deep_extend("keep", _opts, { on_attach = opts.on_attach, capabilities = _capabilities })
             nvim_lsp.clangd.setup(final_opts)
         end,
-
         efm = function()
             -- Do not setup efm
         end,
-
         gopls = function()
             local _opts = require("completion.servers.gopls")
             local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
             nvim_lsp.gopls.setup(final_opts)
         end,
-
         jsonls = function()
             local _opts = require("completion.servers.jsonls")
             local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
             nvim_lsp.jsonls.setup(final_opts)
         end,
-
-        -- sumneko_lua = function()
-        -- 	local _opts = require("completion.servers.sumneko_lua")
-        -- 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-        -- 	nvim_lsp.sumneko_lua.setup(final_opts)
-        -- end,
+        lua_ls = function()
+            local _opts = require("completion.servers.lua_ls")
+            local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
+            nvim_lsp.lua_ls.setup(final_opts)
+        end,
     })
 
     if vim.fn.executable("html-languageserver") then
@@ -143,12 +136,12 @@ return function()
     -- Override default config here
 
     flake8 = vim.tbl_extend("force", flake8, {
-        prefix = "flake8: max-line-length=160, ignore F403 and F405",
-        lintStdin = true,
-        lintIgnoreExitCode = true,
-        lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
-        lintCommand = "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
-    })
+            prefix = "flake8: max-line-length=160, ignore F403 and F405",
+            lintStdin = true,
+            lintIgnoreExitCode = true,
+            lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
+            lintCommand = "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
+        })
 
     -- Setup formatter and linter for efmls here
 
