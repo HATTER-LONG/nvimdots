@@ -83,4 +83,16 @@ ui["edluffy/specs.nvim"] = {
 	config = require("ui.specs"),
 }
 
+ui["lvimuser/lsp-inlayhints.nvim"] = {
+	lazy = true,
+	config = function()
+		require("lsp-inlayhints").setup({
+			prefix = "<- ",
+			separator = ", ",
+			remove_colon_start = false,
+			remove_colon_end = true,
+			labels_separator = "  ",
+		})
+	end,
+}
 return ui
