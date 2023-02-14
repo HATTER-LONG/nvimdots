@@ -59,8 +59,8 @@ return {
 		"--clang-tidy",
 		"--all-scopes-completion",
 		"--completion-style=detailed",
-		"--header-insertion-decorators",
-		"--header-insertion=iwyu",
+		-- "--header-insertion-decorators",
+		-- "--header-insertion=iwyu",
 	},
 	commands = {
 		ClangdSwitchSourceHeader = {
