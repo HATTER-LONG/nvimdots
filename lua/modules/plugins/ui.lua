@@ -82,11 +82,11 @@ ui["dstein64/nvim-scrollview"] = {
 	event = "BufReadPost",
 	config = require("ui.scrollview"),
 }
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
-}
+-- ui["edluffy/specs.nvim"] = {
+-- 	lazy = true,
+-- 	event = "CursorMoved",
+-- 	config = require("ui.specs"),
+-- }
 
 ui["lvimuser/lsp-inlayhints.nvim"] = {
 	lazy = true,
