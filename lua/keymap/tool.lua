@@ -150,6 +150,8 @@ local plug_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 
+	["n|<leader>o"] = map_cu("Telescope lsp_document_symbols"):with_noremap():with_silent():with_desc("find: document symbols"),
+	["n|<leader>as"] = map_cu("Telescope lsp_dynamic_workspace_symbols"):with_noremap():with_silent():with_desc("find: all workspace symbols"),
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
 			require("dap").continue()
