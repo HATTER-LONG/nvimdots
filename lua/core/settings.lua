@@ -39,6 +39,7 @@ settings["lsp"] = {
 	"bashls",
 	"clangd",
 	"html",
+	"jsonls",
 	"lua_ls",
 	"pyright",
 }
