@@ -86,7 +86,7 @@ return function()
 				require("telescope").extensions.projects.projects({})
 			end,
 		}),
-		button("ctrl   p", " File find", leader, nil, {
+		button("space f f", " File find", leader, nil, {
 			noremap = true,
 			silent = true,
 			nowait = true,

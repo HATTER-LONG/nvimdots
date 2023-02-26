@@ -102,7 +102,7 @@ local plug_map = {
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
-	["n|<leader>ff"] = map_callback(function()
+	["n|<C-p>p"] = map_callback(function()
 			_command_panel()
 		end)
 		:with_noremap()
@@ -133,7 +133,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Word in project"),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
-	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme")
 		:with_noremap()
 		:with_silent()
@@ -150,8 +150,14 @@ local plug_map = {
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
 
-	["n|<leader>o"] = map_cu("Telescope lsp_document_symbols"):with_noremap():with_silent():with_desc("find: document symbols"),
-	["n|<leader>as"] = map_cu("Telescope lsp_dynamic_workspace_symbols"):with_noremap():with_silent():with_desc("find: all workspace symbols"),
+	["n|<leader>o"] = map_cu("Telescope lsp_document_symbols")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: document symbols"),
+	["n|<leader>as"] = map_cu("Telescope lsp_dynamic_workspace_symbols")
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: all workspace symbols"),
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
 			require("dap").continue()
