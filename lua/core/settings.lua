@@ -42,6 +42,8 @@ settings["lsp"] = {
 	"jsonls",
 	"lua_ls",
 	"pyright",
+	-- Uncomment the below line to make sure `gopls` installed by `mason`.
+	-- "gopls",
 }
 
 -- Set the desired non-LSP sources here.
