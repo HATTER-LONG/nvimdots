@@ -67,7 +67,7 @@ local plug_map = {
 	-- 	:with_noremap()
 	-- 	:with_silent()
 	-- 	:with_desc("terminal: Toggle float"),
-	["t|<C-q>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["t|<C-q>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["n|<leader>g"] = map_callback(function()
 			_toggle_gitui()
 		end)
