@@ -59,7 +59,7 @@ settings["lsp_deps"] = {
 	"bashls",
 	"clangd",
 	"jsonls",
-	"python-lsp-server",
+	"pylsp",
 	-- "html",
 	-- "lua_ls",
 	-- "pyright",
