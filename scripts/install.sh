@@ -136,6 +136,7 @@ prompt_confirm() {
 }
 
 check_ssh() {
+	return 0
 	info "Validating SSH connection..."
 	ssh -T git@github.com &>/dev/null
 	if ! [ $? -eq 1 ]; then
