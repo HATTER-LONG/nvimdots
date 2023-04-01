@@ -10,19 +10,16 @@ local plug_map = {
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
-
 	-- Plugin: nvim-tree
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
-
 	-- Plugin: sniprun
 	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent():with_desc("tool: Run code by range"),
 	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent():with_desc("tool: Run code by file"),
-
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
-	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
+	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(),      -- switch to normal mode in terminal.
 	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
@@ -80,7 +77,6 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("git: Toggle gitui"),
-
 	-- Plugin: trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
@@ -100,7 +96,6 @@ local plug_map = {
 		:with_silent()
 		:with_desc("lsp: Show quickfix list"),
 	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
-
 	-- Plugin: telescope
 	["n|<C-p>p"] = map_callback(function()
 			_command_panel()
@@ -149,7 +144,6 @@ local plug_map = {
 		:with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
-
 	["n|<leader>o"] = map_cu("Telescope lsp_document_symbols")
 		:with_noremap()
 		:with_silent()
