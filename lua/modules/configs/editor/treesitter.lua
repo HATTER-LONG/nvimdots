@@ -9,7 +9,6 @@ return vim.schedule_wrap(function()
 			"bash",
 			"c",
 			"cpp",
-			"help",
 			"javascript",
 			"json",
 			"latex",
