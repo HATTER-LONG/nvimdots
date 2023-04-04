@@ -20,7 +20,7 @@ return vim.schedule_wrap(function()
 			"python",
 			"rust",
 			"typescript",
-			"vue",
+			"vimdoc",
 			"yaml",
 		},
 		highlight = {
