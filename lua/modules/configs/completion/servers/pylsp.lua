@@ -30,13 +30,13 @@ return function(options)
 				plugins = {
 					-- https://github.com/emanspeaks/pyls-flake8/
 					-- load setup.cfg, tox.ini, .flake8
-					pycodestyle = { enabled = false, maxLineLength = 88 },
-					pydocstyle = { enabled = false },
-					mccabe = { enabled = false },
-					pyflakes = { enabled = false },
-					pylsp_mypy = { report_progress = true },
+					pycodestyle = { enabled = true, maxLineLength = 128 },
+					pydocstyle = { enabled = true },
+					mccabe = { enabled = true },
+					pyflakes = { enabled = true },
+					pylsp_mypy = { enabled = false, report_progress = true },
 					flake8 = {
-						enabled = true,
+						enabled = false,
 						maxLineLength = 128, --[[ ignore = {} ]]
 					},
 					pylint = { enabled = true, executable = getenv() .. "pylint" },
