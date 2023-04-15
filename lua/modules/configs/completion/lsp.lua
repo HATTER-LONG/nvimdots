@@ -38,7 +38,7 @@ return function()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 	local opts = {
-		on_attach = function()
+		on_attach = function(client)
 			require("lsp_signature").on_attach({
 				bind = true,
 				use_lspsaga = false,

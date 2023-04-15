@@ -106,14 +106,18 @@ local function load_options()
 
 	-- custom python provider
 	local conda_prefix = os.getenv("CONDA_PREFIX")
-	if not isempty(conda_prefix) then
+	local pyenv_prefix = os.getenv("PYENV_VIRTUAL_ENV")
+	if not isempty(pyenv_prefix) then
+		vim.g.python_host_prog = pyenv_prefix .. "/bin/python"
+		vim.g.python3_host_prog = pyenv_prefix .. "/bin/python"
+	elseif not isempty(conda_prefix) then
 		vim.g.python_host_prog = conda_prefix .. "/bin/python"
 		vim.g.python3_host_prog = conda_prefix .. "/bin/python"
 	else
 		vim.g.python_host_prog = "python"
 		vim.g.python3_host_prog = "python3"
 	end
-
+	print(vim.g.python_host_prog)
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
