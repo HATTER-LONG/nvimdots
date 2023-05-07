@@ -118,7 +118,6 @@ local function load_options()
 		vim.g.python_host_prog = "python"
 		vim.g.python3_host_prog = "python3"
 	end
-	print(vim.g.python_host_prog)
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
