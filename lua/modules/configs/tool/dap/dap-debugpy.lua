@@ -30,13 +30,13 @@ dap.configurations.python = {
 			elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
 				return cwd .. "/.venv/bin/python"
 			else
-				return "/usr/bin/python"
+				return "python3"
 			end
 		end,
 	},
 }
 
--- NOTE: for people using venv
+-- NOTE: This setting is for people using venv
 -- pythonPath = function()
 -- 	-- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
 -- 	-- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
@@ -49,6 +49,6 @@ dap.configurations.python = {
 -- 	elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
 -- 		return cwd .. "/.venv/bin/python"
 -- 	else
--- 		return "/usr/bin/python"
+-- 		return "python3"
 -- 	end
 -- end,
