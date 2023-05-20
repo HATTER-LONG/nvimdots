@@ -11,18 +11,18 @@ _G._command_panel = function()
 	})
 end
 
-local _lazygit = nil
+local _gitui = nil
 _G._toggle_gitui = function()
-	if vim.fn.executable("lazygit") == 1 then
-		if not _lazygit then
-			_lazygit = require("toggleterm.terminal").Terminal:new({
+	if vim.fn.executable("gitui") == 1 then
+		if not _gitui then
+			_gitui = require("toggleterm.terminal").Terminal:new({
 				cmd = "gitui",
 				direction = "float",
 				close_on_exit = true,
 				hidden = true,
 			})
 		end
-		_lazygit:toggle()
+		_gitui:toggle()
 	else
 		vim.notify("Command [gitui] not found!", vim.log.levels.ERROR, { title = "toggleterm.nvim" })
 	end
