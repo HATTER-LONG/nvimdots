@@ -30,8 +30,9 @@ ui["rebelot/kanagawa.nvim"] = {
 	end,
 }
 
-ui["catppuccin/nvim"] = {
+ui["Jint-lzxy/nvim"] = {
 	lazy = false,
+	branch = "refactor/syntax-highlighting",
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
