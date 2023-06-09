@@ -111,7 +111,7 @@ return function()
 	})
 
 	local opts = {
-		on_attach = function(client)
+		on_attach = function()
 			require("lsp_signature").on_attach({
 				bind = true,
 				use_lspsaga = false,

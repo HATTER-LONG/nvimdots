@@ -112,7 +112,8 @@ return function()
 		sections = {
 			lualine_a = { { "mode" } },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
-			lualine_c = {
+			lualine_c = { lspsaga_symbols },
+			lualine_x = {
 				{ escape_status },
 				{
 					"diagnostics",
@@ -124,8 +125,8 @@ return function()
 						hint = icons.diagnostics.Hint_alt,
 					},
 				},
+				{ get_cwd },
 			},
-			lualine_x = { { get_cwd } },
 			lualine_y = {
 				{ "filetype", colored = true, icon_only = true },
 				{ python_venv },
