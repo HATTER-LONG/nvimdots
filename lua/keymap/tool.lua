@@ -142,6 +142,8 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: all workspace symbols"),
+	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
+
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()
 			require("dap").continue()
