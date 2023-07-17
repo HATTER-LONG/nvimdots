@@ -142,4 +142,14 @@ tool["mfussenegger/nvim-dap"] = {
 	},
 }
 
+----------------------------------------------------------------------
+--                           cmake Plugins                            --
+----------------------------------------------------------------------
+
+tool["Civitasv/cmake-tools.nvim"] = {
+	lazy = true,
+	config = require("tool.cmake-tools"),
+	ft = "cpp,c,cmake",
+}
+
 return tool

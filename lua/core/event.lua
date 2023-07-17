@@ -140,6 +140,26 @@ function autocmd.load_autocmds()
 				"c,cpp",
 				"nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
 			},
+			{
+				"FileType",
+				"c,cpp,cmake",
+				"nnoremap <leader>bg :CMakeGenerate<CR>",
+			},
+			{
+				"FileType",
+				"c,cpp,cmake",
+				"nnoremap <leader>bb :CMakeBuild<CR>",
+			},
+			{
+				"FileType",
+				"c,cpp,cmake",
+				"nnoremap <leader>bc :CMakeClean<CR>",
+			},
+			{
+				"FileType",
+				"c,cpp,cmake",
+				"nnoremap <leader>br :CMakeRun<CR>",
+			},
 		},
 		yank = {
 			{
