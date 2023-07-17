@@ -158,6 +158,11 @@ function autocmd.load_autocmds()
 			{
 				"FileType",
 				"c,cpp,cmake",
+				"nnoremap <leader>bq :CMakeQuickBuild<CR>",
+			},
+			{
+				"FileType",
+				"c,cpp,cmake",
 				"nnoremap <leader>br :CMakeRun<CR>",
 			},
 		},
