@@ -1,13 +1,25 @@
 return function()
+	local function init_strategy(check_lines)
+		return function()
+			local errors = 200
+			vim.treesitter.get_parser():for_each_tree(function(lt)
+				if lt:root():has_error() and errors >= 0 then
+					errors = errors - 1
+				end
+			end)
+			if errors < 0 then
+				return nil
+			end
+			return (check_lines and vim.fn.line("$") > 450) and require("rainbow-delimiters").strategy["global"]
+				or require("rainbow-delimiters").strategy["local"]
+		end
+	end
+
 	vim.g.rainbow_delimiters = {
 		strategy = {
-			[""] = function()
-				local ok, is_large_file = pcall(vim.api.nvim_buf_get_var, vim.fn.bufnr(), "bigfile_disable_treesitter")
-				if ok and is_large_file then
-					return nil
-				end
-				return require("rainbow-delimiters").strategy["global"]
-			end,
+			[""] = init_strategy(false),
+			c = init_strategy(true),
+			cpp = init_strategy(true),
 		},
 		query = {
 			[""] = "rainbow-delimiters",
