@@ -30,6 +30,12 @@ settings["diagnostics_level"] = "Hint"
 ---@type string[]
 settings["format_disabled_dirs"] = {
 	"~/format_disabled_dir",
+	"/opt",
+	"/etc",
+	"/usr",
+	"/proc",
+	"~/workspace/arm",
+	"~/workspace/stm32dev/STM32CubeF4",
 }
 
 -- Set it to false if you don't use nvim to open big files.

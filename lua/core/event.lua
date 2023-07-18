@@ -165,6 +165,11 @@ function autocmd.load_autocmds()
 				"c,cpp,cmake",
 				"nnoremap <leader>br :CMakeRun<CR>",
 			},
+			{
+				"FileType",
+				"c,cpp,cmake",
+				"nnoremap <leader>bw :CMakeClose<CR>",
+			},
 		},
 		yank = {
 			{
