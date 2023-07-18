@@ -110,7 +110,7 @@ settings["null_ls_deps"] = {
 ---@type string[]
 settings["dap_deps"] = {
 	"codelldb", -- C-Family
-	"delve", -- Go
+	-- "delve", -- Go
 	"python", -- Python (debugpy)
 }
 
