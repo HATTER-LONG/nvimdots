@@ -1,0 +1,38 @@
+name: package
+on:
+  # Scheduled update (each day)
+  schedule: [{ cron: "30 01 * * *" }]
+
+jobs:
+  package-ubuntu:
+    if: github.repository_owner == 'HATTER-LONG'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Required to count the commits
+      - uses: andstor/file-existence-action@v2
+        id: check_lockfile
+        with:
+          files: "lazy-lock.json"
+      - name: Run count-new-commits
+        run: |
+          echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' --perl-regexp --author='^((?!github-actions).*)$' | wc -l)" >> "$GITHUB_ENV"
+      - uses: rhysd/action-setup-vim@v1
+        if: ${{ steps.check_lockfile.outputs.files_exists == 'true' && env.NEW_COMMIT_COUNT > 0 }}
+        with:
+          neovim: true
+      - name: Run lockfile-autoupdate
+        if: ${{ steps.check_lockfile.outputs.files_exists == 'true' && env.NEW_COMMIT_COUNT > 0 }}
+        timeout-minutes: 5
+        run: |
+          ./scripts/install.sh
+          nvim --headless "+Lazy! update" +qa
+          rm -rf ${HOME}/.config/nvim/.git
+          tar -cvzf nvimdots.tar.gz ${HOME}/.config/nvim/
+      - uses: actions/upload-artifact@v1
+        with:
+          name: package
+          path: ./nvimdots.tar.gz
