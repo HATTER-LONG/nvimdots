@@ -44,7 +44,7 @@ return function()
 				return
 			end
 
-			local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
+			local venv = vim.fn.stdpath("config") .. "/mason/packages/python-lsp-server/venv"
 			local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
 			local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
 			local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
