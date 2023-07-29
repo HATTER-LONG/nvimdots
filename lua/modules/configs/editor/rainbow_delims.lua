@@ -11,7 +11,7 @@ return function()
 				return nil
 			end
 			return (check_lines and vim.fn.line("$") > 350) and require("rainbow-delimiters").strategy["global"]
-				or require("rainbow-delimiters").strategy["global"]
+				or require("rainbow-delimiters").strategy["local"]
 		end
 	end
 

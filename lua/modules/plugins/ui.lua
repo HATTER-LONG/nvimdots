@@ -66,11 +66,11 @@ ui["zbirenbaum/neodim"] = {
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
-ui["karb94/neoscroll.nvim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("ui.neoscroll"),
-}
+-- ui["karb94/neoscroll.nvim"] = {
+-- 	lazy = true,
+-- 	event = { "CursorHold", "CursorHoldI" },
+-- 	config = require("ui.neoscroll"),
+-- }
 ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
 	config = require("ui.nord"),
@@ -96,16 +96,4 @@ ui["dstein64/nvim-scrollview"] = {
 -- 	config = require("ui.specs"),
 -- }
 
-ui["lvimuser/lsp-inlayhints.nvim"] = {
-	lazy = true,
-	config = function()
-		require("lsp-inlayhints").setup({
-			prefix = "<- ",
-			separator = ", ",
-			remove_colon_start = false,
-			remove_colon_end = true,
-			labels_separator = "  ",
-		})
-	end,
-}
 return ui
