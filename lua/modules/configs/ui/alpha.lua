@@ -140,12 +140,11 @@ return function()
 	dashboard.section.terminal.opts.redraw = true
 
 	local head_butt_padding = 2
-	local occu_height = #dashboard.section.header.val + 2 * #dashboard.section.buttons.val + head_butt_padding
-	local header_padding = math.max(0, math.ceil((vim.fn.winheight("$") - occu_height) * 0.25))
+	local header_padding = 1
 	local foot_butt_padding = 1
 
 	dashboard.config.layout = {
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = header_padding },
 		dashboard.section.terminal,
 		{ type = "padding", val = 5 },
 		dashboard.section.header,
