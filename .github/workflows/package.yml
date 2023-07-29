@@ -27,11 +27,13 @@ jobs:
       - name: Run lockfile-autoupdate
         timeout-minutes: 5
         run: |
+          export GITHUB_ACTION=TRUE
           ./scripts/install.sh
-          nvim --headless "+Lazy! update" "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
+          nvim --headless "+Lazy! update" "+Lazy! reload mason.nvim" "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
           rm -rf ${HOME}/.config/nvim/.git
-          tar -cvzf nvimdots.tar.gz ${HOME}/.config/nvim/
+          cd ${HOME}/.config
+          tar -cvzf nvimdots.tar.gz ./nvim
       - uses: actions/upload-artifact@v1
         with:
           name: package
-          path: ./nvimdots.tar.gz
+          path: ${HOME}/.config/nvimdots.tar.gz

@@ -1,7 +1,12 @@
 local completion = {}
 
+local needlazyload = true
+if os.getenv("GITHUB_ACTION") == "TRUE" then
+    needlazyload = false
+end
+
 completion["neovim/nvim-lspconfig"] = {
-	lazy = true,
+	lazy = needlazyload,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.lsp"),
 	dependencies = {
@@ -20,7 +25,7 @@ completion["nvimdev/lspsaga.nvim"] = {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
-	lazy = true,
+	lazy = needlazyload,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.null-ls"),
 	dependencies = {
