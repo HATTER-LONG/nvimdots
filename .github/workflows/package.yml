@@ -12,7 +12,7 @@ on:
           - ubuntu-latest
 
 jobs:
-  package-ubuntu:
+  package:
     if: github.repository_owner == 'HATTER-LONG'
     runs-on: ["${{ inputs.chosen-os }}"]
     permissions:
