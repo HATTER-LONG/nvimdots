@@ -6,8 +6,10 @@ return function()
 		cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
 		cmake_build_directory = "", -- this is used to specify generate directory for cmake
 		cmake_build_directory_prefix = "cmake_build_", -- when cmake_build_directory is set to "", this option will be activated
-		cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
-		cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
+		-- this will automatically make a soft link from compile commands file to project root dir
+		cmake_soft_link_compile_commands = true,
+		-- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
+		cmake_compile_commands_from_lsp = false,
 		cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
 		cmake_variants_message = {
 			short = { show = true }, -- whether to show short message
@@ -21,15 +23,23 @@ return function()
 			runInTerminal = true,
 			console = "integratedTerminal",
 		},
-		cmake_always_use_terminal = false, -- if true, use terminal for generate, build, clean, install, run, etc, except for debug, else only use terminal for run, use quickfix for others
-		cmake_quickfix_opts = { -- quickfix settings for cmake, quickfix will be used when `cmake_always_use_terminal` is false
+		-- if true, use terminal for generate, build, clean, install, run, etc,
+		-- except for debug, else only use terminal for run, use quickfix for others
+		cmake_always_use_terminal = false,
+		-- quickfix settings for cmake, quickfix will be used when `cmake_always_use_terminal` is false
+		cmake_quickfix_opts = {
 			show = "always", -- "always", "only_on_error"
 			position = "belowright", -- "bottom", "top"
 			size = 10,
 		},
-		cmake_terminal_opts = { -- terminal settings for cmake, terminal will be used for run when `cmake_always_use_terminal` is false or true, will be used for all tasks except for debug when `cmake_always_use_terminal` is true
+		-- terminal settings for cmake, terminal will be used for run
+		-- when `cmake_always_use_terminal` is false or true,
+		-- will be used for all tasks except for debug when `cmake_always_use_terminal` is true
+		cmake_terminal_opts = {
 			name = "Main Terminal",
-			prefix_name = "[CMakeTools]: ", -- This must be included and must be unique, otherwise the terminals will not work. Do not use a simple spacebar " ", or any generic name
+			-- This must be included and must be unique, otherwise the terminals will not work.
+			-- Do not use a simple spacebar " ", or any generic name
+			prefix_name = "[CMakeTools]: ",
 			split_direction = "horizontal", -- "horizontal", "vertical"
 			split_size = 11,
 
@@ -40,7 +50,8 @@ return function()
 
 			-- Running Tasks
 			start_insert_in_launch_task = false, -- If you want to enter terminal with :startinsert upon using :CMakeRun
-			start_insert_in_other_tasks = false, -- If you want to enter terminal with :startinsert upon launching all other cmake tasks in the terminal. Generally set as false
+			-- If you want to enter terminal with :startinsert upon launching all other cmake tasks in the terminal. Generally set as false
+			start_insert_in_other_tasks = false,
 			focus_on_main_terminal = false, -- Focus on cmake terminal when cmake task is launched. Only used if cmake_always_use_terminal is true.
 			focus_on_launch_terminal = false, -- Focus on cmake launch terminal when executable target in launched.
 		},
