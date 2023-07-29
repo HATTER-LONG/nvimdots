@@ -1,7 +1,7 @@
 local completion = {}
 
 completion["neovim/nvim-lspconfig"] = {
-	lazy = false,
+	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.lsp"),
 	dependencies = {
@@ -20,7 +20,7 @@ completion["nvimdev/lspsaga.nvim"] = {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
-	lazy = false,
+	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.null-ls"),
 	dependencies = {
