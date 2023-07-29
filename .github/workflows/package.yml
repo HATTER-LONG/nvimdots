@@ -6,7 +6,6 @@ on:
         required: true
         type: choice
         options:
-          - Ubuntu
           - macos-latest
           - ubuntu-latest
           - ubuntu-20.04
@@ -15,7 +14,7 @@ on:
 jobs:
   package-ubuntu:
     if: github.repository_owner == 'HATTER-LONG'
-    runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
+    runs-on: ["${{ inputs.chosen-os }}"]
     permissions:
       contents: write
     steps:
