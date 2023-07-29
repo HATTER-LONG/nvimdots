@@ -32,9 +32,7 @@ jobs:
           nvim --headless "+Lazy! update" +qa
           nvim --headless "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
           rm -rf ${HOME}/.config/nvim/.git
-          cd ${HOME}/.config
-          tar -cvzf nvimdots.tar.gz ./nvim
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
-          name: package
-          path: ${HOME}/.config/nvimdots.tar.gz
+          name: nvimdots
+          path: ~/.config/nvim*
