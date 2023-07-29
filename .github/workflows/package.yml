@@ -1,15 +1,21 @@
 name: package
 on:
-  push:
-    branches:
-      - main
-  # Scheduled update (each day)
-  schedule: [{ cron: "00 00 * * 0" }]
+  workflow_dispatch:
+    inputs:
+      chosen-os:
+        required: true
+        type: choice
+        options:
+          - Ubuntu
+          - macos-latest
+          - ubuntu-latest
+          - ubuntu-20.04
+          - ubuntu-22.04
 
 jobs:
   package-ubuntu:
     if: github.repository_owner == 'HATTER-LONG'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
     permissions:
       contents: write
     steps:
