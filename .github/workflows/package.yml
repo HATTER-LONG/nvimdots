@@ -6,10 +6,10 @@ on:
         required: true
         type: choice
         options:
+          - ubuntu-22.04
+          - ubuntu-20.04
           - macos-latest
           - ubuntu-latest
-          - ubuntu-20.04
-          - ubuntu-22.04
 
 jobs:
   package-ubuntu:
@@ -28,7 +28,7 @@ jobs:
         timeout-minutes: 5
         run: |
           ./scripts/install.sh
-          nvim --headless "+Lazy! update" +qa
+          nvim --headless "+Lazy! update" "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
           rm -rf ${HOME}/.config/nvim/.git
           tar -cvzf nvimdots.tar.gz ${HOME}/.config/nvim/
       - uses: actions/upload-artifact@v1
