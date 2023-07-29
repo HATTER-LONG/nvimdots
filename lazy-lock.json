@@ -78,7 +78,7 @@
   "telescope-zoxide": { "branch": "main", "commit": "68966349aa1b8e9ade403e18479ecf79447389a7" },
   "telescope.nvim": { "branch": "master", "commit": "22735947d84d78f29436c203f0a4b8dc15dda204" },
   "toggleterm.nvim": { "branch": "main", "commit": "00c13dccc78c09fa5da4c5edda990a363e75035e" },
-  "trouble.nvim": { "branch": "main", "commit": "ab6dd3ffb7101d4999b6b03f93317ee99ae85fb6" },
+  "trouble.nvim": { "branch": "main", "commit": "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3" },
   "vim-cool": { "branch": "master", "commit": "04bb7f5dade175a81b47abf4e87aeb30b05b33d8" },
   "vim-easy-align": { "branch": "master", "commit": "12dd6316974f71ce333e360c0260b4e1f81169c3" },
   "vim-fugitive": { "branch": "master", "commit": "b3b838d690f315a503ec4af8c634bdff3b200aaf" },

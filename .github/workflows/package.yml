@@ -29,7 +29,8 @@ jobs:
         run: |
           export GITHUB_ACTION=TRUE
           ./scripts/install.sh
-          nvim --headless "+Lazy! update" "+Lazy! reload mason.nvim" "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
+          nvim --headless "+Lazy! update" +qa
+          nvim --headless "+MasonInstall bash-language-server clangd json-lsp lua-language-server python-lsp-server" +qa
           rm -rf ${HOME}/.config/nvim/.git
           cd ${HOME}/.config
           tar -cvzf nvimdots.tar.gz ./nvim

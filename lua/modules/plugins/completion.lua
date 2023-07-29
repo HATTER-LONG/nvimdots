@@ -2,7 +2,7 @@ local completion = {}
 
 local needlazyload = true
 if os.getenv("GITHUB_ACTION") == "TRUE" then
-    needlazyload = false
+	needlazyload = false
 end
 
 completion["neovim/nvim-lspconfig"] = {
