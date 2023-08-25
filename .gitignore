@@ -1,5 +1,5 @@
 lua/modules/plugins/custom.lua
 lua/modules/configs/custom
-lazy-lock.json
+lua/user
 mason
 site
