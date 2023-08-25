@@ -1,13 +1,8 @@
 local completion = {}
 local use_copilot = require("core.settings").use_copilot
 
-local needlazyload = true
-if os.getenv("GITHUB_ACTION") == "TRUE" then
-	needlazyload = false
-end
-
 completion["neovim/nvim-lspconfig"] = {
-	lazy = needlazyload,
+	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.lsp"),
 	dependencies = {
@@ -36,8 +31,8 @@ completion["simrat39/symbols-outline.nvim"] = {
 	config = require("completion.symbols-outline"),
 }
 completion["jose-elias-alvarez/null-ls.nvim"] = {
-	lazy = needlazyload,
-	event = "LspAttach",
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.null-ls"),
 	dependencies = {
 		"nvim-lua/plenary.nvim",

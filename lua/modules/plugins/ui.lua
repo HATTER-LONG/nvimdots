@@ -10,26 +10,6 @@ ui["akinsho/bufferline.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.bufferline"),
 }
-
-ui["rebelot/kanagawa.nvim"] = {
-	lazy = false,
-	config = function()
-		require("kanagawa").setup({
-			functionStyle = { bold = true, italic = true },
-			transparent = false, -- do not set background color
-			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-			colors = {},
-			-- overrides = {},
-
-			theme = "wave", -- Load "wave" theme when 'background' option is not set
-			background = { -- map the value of 'background' option to a theme
-				dark = "wave", -- try "dragon" !
-				light = "lotus",
-			},
-		})
-	end,
-}
-
 ui["Jint-lzxy/nvim"] = {
 	lazy = false,
 	branch = "refactor/syntax-highlighting",
@@ -66,11 +46,11 @@ ui["zbirenbaum/neodim"] = {
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
--- ui["karb94/neoscroll.nvim"] = {
--- 	lazy = true,
--- 	event = { "CursorHold", "CursorHoldI" },
--- 	config = require("ui.neoscroll"),
--- }
+ui["karb94/neoscroll.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("ui.neoscroll"),
+}
 ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
 	config = require("ui.nord"),
@@ -90,10 +70,10 @@ ui["dstein64/nvim-scrollview"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.scrollview"),
 }
--- ui["edluffy/specs.nvim"] = {
--- 	lazy = true,
--- 	event = "CursorMoved",
--- 	config = require("ui.specs"),
--- }
+ui["edluffy/specs.nvim"] = {
+	lazy = true,
+	event = "CursorMoved",
+	config = require("ui.specs"),
+}
 
 return ui

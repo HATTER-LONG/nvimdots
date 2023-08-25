@@ -21,7 +21,7 @@ local function load_options()
 		completeopt = "menuone,noselect",
 		concealcursor = "niv",
 		conceallevel = 0,
-		cursorcolumn = false,
+		cursorcolumn = true,
 		cursorline = true,
 		diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
 		display = "lastline",
@@ -93,8 +93,7 @@ local function load_options()
 		virtualedit = "block",
 		visualbell = true,
 		whichwrap = "h,l,<,>,[,],~",
-		wildignore =
-		".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
+		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
 		wildignorecase = true,
 		-- Do NOT adjust the following option (winblend) if you're using transparent background
 		winblend = 0,
@@ -116,8 +115,8 @@ local function load_options()
 	local conda_prefix = os.getenv("CONDA_PREFIX")
 	local pyenv_prefix = os.getenv("PYENV_VIRTUAL_ENV")
 	if not isempty(pyenv_prefix) then
-		vim.g.python_host_prog = pyenv_prefix .. "/bin/python"
-		vim.g.python3_host_prog = pyenv_prefix .. "/bin/python"
+		vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, pyenv_prefix .. "/bin/python")
+		vim.g.python3_host_prog = use_if_defined(vim.g.python_host_prog, pyenv_prefix .. "/bin/python")
 	elseif not isempty(conda_prefix) then
 		vim.g.python_host_prog = use_if_defined(vim.g.python_host_prog, conda_prefix .. "/bin/python")
 		vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, conda_prefix .. "/bin/python")

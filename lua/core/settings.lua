@@ -34,12 +34,6 @@ settings["diagnostics_level"] = "Hint"
 ---@type string[]
 settings["format_disabled_dirs"] = {
 	"~/format_disabled_dir",
-	"/opt",
-	"/etc",
-	"/usr",
-	"/proc",
-	"~/workspace/arm",
-	"~/workspace/stm32dev/STM32CubeF4",
 }
 
 -- Set the plugins to disable here.
@@ -59,7 +53,7 @@ settings["load_big_files_faster"] = true
 settings["palette_overwrite"] = {}
 
 -- Set the colorscheme to use here.
--- Available values are: `kanagawa`, `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
+-- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`, `edge`, `nord`.
 ---@type string
 settings["colorscheme"] = "catppuccin"
 
@@ -99,9 +93,11 @@ settings["server_formatting_block_list"] = {
 settings["lsp_deps"] = {
 	"bashls",
 	"clangd",
+	"html",
 	"jsonls",
 	"lua_ls",
 	"pylsp",
+	-- "gopls",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
@@ -114,6 +110,7 @@ settings["null_ls_deps"] = {
 	"prettier",
 	"shfmt",
 	"stylua",
+	"vint",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.
@@ -122,6 +119,7 @@ settings["null_ls_deps"] = {
 ---@type string[]
 settings["dap_deps"] = {
 	"codelldb", -- C-Family
+	"delve", -- Go
 	"python", -- Python (debugpy)
 }
 

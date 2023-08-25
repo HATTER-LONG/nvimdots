@@ -22,7 +22,7 @@ local plug_map = {
 
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
-	-- ["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
 		:with_noremap()
 		:with_silent()
@@ -50,7 +50,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
 	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
-	["n|<leader>te"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
+	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
@@ -58,7 +58,7 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
-	["t|<C-q>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["n|<leader>g"] = map_callback(function()
 			_toggle_lazygit()
 		end)
@@ -134,14 +134,6 @@ local plug_map = {
 		:with_desc("edit: Change current direrctory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
-	["n|<leader>o"] = map_cu("Telescope lsp_document_symbols")
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: document symbols"),
-	["n|<leader>as"] = map_cu("Telescope lsp_dynamic_workspace_symbols")
-		:with_noremap()
-		:with_silent()
-		:with_desc("find: all workspace symbols"),
 	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
 
 	-- Plugin: dap
