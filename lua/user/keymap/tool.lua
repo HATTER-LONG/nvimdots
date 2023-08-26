@@ -3,7 +3,6 @@ local map_cu = require("keymap.bind").map_cu
 local map_cr = require("keymap.bind").map_cr
 
 return {
-
 	["n|<leader>te"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
 		:with_noremap()
 		:with_silent()
@@ -24,4 +23,7 @@ return {
 
 	["t|<C-x>q"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	["t|jk"] = false,
+
+	["n|tk"] = map_cr("tabprevious"):with_noremap():with_silent():with_desc("tab: Move to previous tab"),
+	["n|tj"] = map_cr("tabnext"):with_noremap():with_silent():with_desc("tab: Move to next tab"),
 }
