@@ -16,26 +16,31 @@ settings["format_disabled_dirs"] = {
 	"~/workspace/stm32dev/STM32CubeF4",
 }
 
-settings["lsp_deps"] = {
-	"bashls",
-	"clangd",
-	"jsonls",
-	"lua_ls",
-	"pylsp",
-}
+settings["lsp_deps"] = function()
+	return {
+		"bashls",
+		"clangd",
+		"jsonls",
+		"lua_ls",
+		"pylsp",
+	}
+end
+settings["null_ls_deps"] = function()
+	return {
+		"clang_format",
+		"prettier",
+		"shfmt",
+		"stylua",
+		"vint",
+	}
+end
+settings["dap_deps"] = function()
+	return {
+		"codelldb", -- C-Family
+		"python", -- Python (debugpy)
+	}
+end
 
-settings["null_ls_deps"] = {
-	"clang_format",
-	"prettier",
-	"shfmt",
-	"stylua",
-	"vint",
-}
-
-settings["dap_deps"] = {
-	"codelldb", -- C-Family
-	"python", -- Python (debugpy)
-}
 settings["disabled_plugins"] = {
 	"fatih/vim-go",
 	"simrat39/rust-tools.nvim",
