@@ -7,32 +7,32 @@ local definitions = {
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>bg :CMakeGenerate<CR>",
+			"nnoremap <leader>mg :CMakeGenerate<CR>",
 		},
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>bb :CMakeBuild<CR>",
+			"nnoremap <leader>mb :CMakeBuild<CR>",
 		},
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>bc :CMakeClean<CR>",
+			"nnoremap <leader>mc :CMakeClean<CR>",
 		},
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>bq :CMakeQuickBuild<CR>",
+			"nnoremap <leader>mq :CMakeQuickBuild<CR>",
 		},
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>br :CMakeRun<CR>",
+			"nnoremap <leader>mr :CMakeRun<CR>",
 		},
 		{
 			"FileType",
 			"c,cpp,cmake",
-			"nnoremap <leader>bw :CMakeClose<CR>",
+			"nnoremap <leader>mw :CMakeClose<CR>",
 		},
 	},
 }
