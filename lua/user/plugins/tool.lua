@@ -33,4 +33,31 @@ tool["Civitasv/cmake-tools.nvim"] = {
 	config = require("user.configs.tool.cmake-tools"),
 	ft = "cpp,c,cmake",
 }
+
+tool["postfen/clipboard-image.nvim"] = {
+	lazy = true,
+	ft = "markdown,txt",
+	config = function()
+		require("clipboard-image").setup({
+			markdown = {
+				img_dir = { "PIC" }, -- Use table for nested dir (New feature form PR #20)
+				img_dir_txt = "./PIC",
+				-- img_handler = function(img) -- New feature from PR #22
+				-- 	local script = string.format('./image_compressor.sh "%s"', img.path)
+				-- 	os.execute(script)
+				-- end,
+			},
+		})
+	end,
+}
+
+tool["richardbizik/nvim-toc"] = {
+	lazy = true,
+	ft = "markdown,txt",
+
+	config = function()
+		require("nvim-toc").setup({})
+	end,
+}
+
 return tool
