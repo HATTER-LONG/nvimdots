@@ -16,6 +16,22 @@ settings["format_disabled_dirs"] = {
 	"~/workspace/stm32dev/STM32CubeF4",
 }
 
+settings["treesitter_deps"] = function()
+	return {
+		"bash",
+		"c",
+		"cpp",
+		"json",
+		"lua",
+		"make",
+		"markdown",
+		"markdown_inline",
+		"python",
+		"rust",
+		"vimdoc",
+		"yaml",
+	}
+end
 settings["lsp_deps"] = function()
 	return {
 		"bashls",
