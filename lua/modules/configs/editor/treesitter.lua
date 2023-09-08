@@ -18,6 +18,7 @@ return vim.schedule_wrap(function()
 			"vimdoc",
 			"yaml",
 		},
+		ensure_installed = require("core.settings").treesitter_deps,
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
