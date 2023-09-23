@@ -60,4 +60,12 @@ tool["richardbizik/nvim-toc"] = {
 	end,
 }
 
+tool["hotoo/pangu.vim"] = {
+	lazy = true,
+	ft = "markdown,txt",
+	config = function()
+		-- require("pangu").setup({})
+	end,
+}
+
 return tool
