@@ -146,7 +146,7 @@ return function()
 	dashboard.config.layout = {
 		{ type = "padding", val = header_padding },
 		dashboard.section.terminal,
-		{ type = "padding", val = 5 },
+		{ type = "padding", val = 3 },
 		dashboard.section.header,
 		{ type = "padding", val = head_butt_padding },
 		dashboard.section.buttons,
