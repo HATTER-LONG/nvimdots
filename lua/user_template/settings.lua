@@ -47,4 +47,22 @@ settings["disabled_plugins"] = {
 	"edluffy/specs.nvim",
 	"karb94/neoscroll.nvim",
 }
+
+-- Set the options specific to `neovide` here.
+-- NOTE: You should remove the `neovide_` prefix (with trailing underscore) from all your entries below.
+-- Check the below link for all supported entries:
+-- https://neovide.dev/configuration.html
+---@type table<string, boolean|number|string>
+settings["neovide_config"] = {
+	no_idle = true,
+	refresh_rate = 120,
+	cursor_vfx_mode = "railgun",
+	cursor_vfx_opacity = 200.0,
+	cursor_antialiasing = true,
+	cursor_trail_length = 0.05,
+	cursor_animation_length = 0.03,
+	cursor_vfx_particle_speed = 20.0,
+	cursor_vfx_particle_density = 5.0,
+	cursor_vfx_particle_lifetime = 1.2,
+}
 return settings
