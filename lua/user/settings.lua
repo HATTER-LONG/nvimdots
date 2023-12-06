@@ -59,7 +59,7 @@ end
 
 settings["disabled_plugins"] = {
 	"fatih/vim-go",
-	"simrat39/rust-tools.nvim",
+	-- "simrat39/rust-tools.nvim",
 	"edluffy/specs.nvim",
 	"karb94/neoscroll.nvim",
 }
