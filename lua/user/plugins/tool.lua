@@ -34,38 +34,53 @@ tool["Civitasv/cmake-tools.nvim"] = {
 	ft = "cpp,c,cmake",
 }
 
-tool["postfen/clipboard-image.nvim"] = {
-	lazy = true,
-	ft = "markdown,txt",
-	config = function()
-		require("clipboard-image").setup({
-			markdown = {
-				img_dir = { "PIC" }, -- Use table for nested dir (New feature form PR #20)
-				img_dir_txt = "./PIC",
-				-- img_handler = function(img) -- New feature from PR #22
-				-- 	local script = string.format('./image_compressor.sh "%s"', img.path)
-				-- 	os.execute(script)
-				-- end,
-			},
-		})
-	end,
+tool["folke/noice.nvim"] = {
+	-- lazy = true,
+	config = require("user.configs.tool.noice"),
+	opts = {
+		-- add any options here
+	},
+	dependencies = {
+		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		"MunifTanjim/nui.nvim",
+		-- OPTIONAL:
+		--   `nvim-notify` is only needed, if you want to use the notification view.
+		--   If not available, we use `mini` as the fallback
+		"rcarriga/nvim-notify",
+	},
 }
+-- tool["postfen/clipboard-image.nvim"] = {
+-- 	lazy = true,
+-- 	ft = "markdown,txt",
+-- 	config = function()
+-- 		require("clipboard-image").setup({
+-- 			markdown = {
+-- 				img_dir = { "PIC" }, -- Use table for nested dir (New feature form PR #20)
+-- 				img_dir_txt = "./PIC",
+-- 				-- img_handler = function(img) -- New feature from PR #22
+-- 				-- 	local script = string.format('./image_compressor.sh "%s"', img.path)
+-- 				-- 	os.execute(script)
+-- 				-- end,
+-- 			},
+-- 		})
+-- 	end,
+-- }
 
-tool["richardbizik/nvim-toc"] = {
-	lazy = true,
-	ft = "markdown,txt",
+-- tool["richardbizik/nvim-toc"] = {
+-- 	lazy = true,
+-- 	ft = "markdown,txt",
 
-	config = function()
-		require("nvim-toc").setup({})
-	end,
-}
+-- 	config = function()
+-- 		require("nvim-toc").setup({})
+-- 	end,
+-- }
 
-tool["hotoo/pangu.vim"] = {
-	lazy = true,
-	ft = "markdown,txt",
-	config = function()
-		-- require("pangu").setup({})
-	end,
-}
+-- tool["hotoo/pangu.vim"] = {
+-- 	lazy = true,
+-- 	ft = "markdown,txt",
+-- 	config = function()
+-- 		-- require("pangu").setup({})
+-- 	end,
+-- }
 
 return tool

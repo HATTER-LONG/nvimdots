@@ -5,8 +5,6 @@ return function()
 	local vim_path = require("core.global").vim_path
 	require("modules.utils").gen_alpha_hl()
 
-	-- dashboard.section.header.val = "  𝕟 𝕖 𝕠 𝕧 𝕚 𝕞  "
-
 	dashboard.section.header.val = {
 		[[████████╗██╗  ██╗██╗███████╗    ██╗███████╗    ███████╗██╗███╗   ██╗███████╗]],
 		[[╚══██╔══╝██║  ██║██║██╔════╝    ██║██╔════╝    ██╔════╝██║████╗  ██║██╔════╝]],
@@ -132,7 +130,7 @@ return function()
 	dashboard.section.terminal.opts.redraw = true
 
 	local head_butt_padding = 2
-	local header_padding = 1
+	local header_padding = 5
 	local foot_butt_padding = 1
 
 	dashboard.config.layout = {
@@ -147,7 +145,6 @@ return function()
 	}
 
 	require("modules.utils").load_plugin("alpha", dashboard.opts)
-
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "LazyVimStarted",
 		callback = function()
