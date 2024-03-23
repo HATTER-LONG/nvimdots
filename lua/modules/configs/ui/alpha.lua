@@ -114,6 +114,8 @@ return function()
 			.. vim.version().patch
 			.. "  󰂖 "
 			.. stats.count
+			.. " plugins installed. Loaded "
+			.. stats.loaded
 			.. " plugins in "
 			.. ms
 			.. "ms"
