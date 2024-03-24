@@ -6,6 +6,8 @@ return {
 	["n|<A-k>"] = false,
 	["n|<A-l>"] = false,
 
+	["nv|<leader>c"] = false,
+	["nv|<leader>C"] = false,
 	["n|L"] = map_cmd("$"):with_noremap():with_desc("edit: Jump end of line"),
 	["n|H"] = map_cmd("^"):with_noremap():with_desc("edit: Jump begin of line"),
 
