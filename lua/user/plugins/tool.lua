@@ -50,33 +50,36 @@ tool["folke/noice.nvim"] = {
 	},
 }
 
-tool["CopilotC-Nvim/CopilotChat.nvim"] = {
-	event = "BufReadPost",
-	lazy = true,
-	version = "v2.1.1",
-	dependencies = {
-		{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-	},
-	config = function()
-		require("CopilotChat").setup({
-			debug = false, -- Enable debugging
-			separator = "🤖🚀🤖🚀🤖🚀🤖🚀🤖🚀🤖",
-			context = "buffers",
-			-- See Configuration section for rest
-			-- default prompts
-			prompts = {
-				ExplainCN = {
-					prompt = "/COPILOT_EXPLAIN Write an explanation for the code above as paragraphs of text answer with chinese.",
+local use_copilot = require("core.settings").use_copilot
+if use_copilot then
+	tool["CopilotC-Nvim/CopilotChat.nvim"] = {
+		event = "BufReadPost",
+		lazy = true,
+		version = "v2.1.1",
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		},
+		config = function()
+			require("CopilotChat").setup({
+				debug = false, -- Enable debugging
+				separator = "🤖🚀🤖🚀🤖🚀🤖🚀🤖🚀🤖",
+				context = "buffers",
+				-- See Configuration section for rest
+				-- default prompts
+				prompts = {
+					ExplainCN = {
+						prompt = "/COPILOT_EXPLAIN Write an explanation for the code above as paragraphs of text answer with chinese.",
+					},
 				},
-			},
-		})
-	end,
-	opts = {
-		debug = false, -- Enable debugging
-		-- See Configuration section for rest
-	},
-}
+			})
+		end,
+		opts = {
+			debug = false, -- Enable debugging
+			-- See Configuration section for rest
+		},
+	}
+end
 -- tool["postfen/clipboard-image.nvim"] = {
 -- 	lazy = true,
 -- 	ft = "markdown,txt",
