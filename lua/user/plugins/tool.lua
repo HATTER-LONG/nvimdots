@@ -1,33 +1,81 @@
 local tool = {}
 
-tool["brglng/vim-im-select"] = {
+tool["keaising/im-select.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = function()
 		local global = require("core.global")
 		if global.is_mac then
-			vim.api.nvim_command([[let g:im_select_get_im_cmd = ["macism"] ]])
-			vim.api.nvim_command([[let g:im_select_default = "com.apple.keylayout.ABC"]])
-			vim.api.nvim_command([[let g:ImSelectSetImCmd = {key -> ['macism', key]}]])
-			vim.api.nvim_command([[let g:im_select_enable_focus_events = 0]])
+			require("im_select").setup({
+				-- IM will be set to `default_im_select` in `normal` mode
+				-- For Windows/WSL, default: "1033", aka: English US Keyboard
+				-- For macOS, default: "com.apple.keylayout.ABC", aka: US
+				-- For Linux, default:
+				--               "keyboard-us" for Fcitx5
+				--               "1" for Fcitx
+				--               "xkb:us::eng" for ibus
+				-- You can use `im-select` or `fcitx5-remote -n` to get the IM's name
+				default_im_select = "com.apple.keylayout.ABC",
+
+				-- Can be binary's name or binary's full path,
+				-- e.g. 'im-select' or '/usr/local/bin/im-select'
+				-- For Windows/WSL, default: "im-select.exe"
+				-- For macOS, default: "im-select"
+				-- For Linux, default: "fcitx5-remote" or "fcitx-remote" or "ibus"
+				default_command = "macism",
+
+				-- Restore the default input method state when the following events are triggered
+				set_default_events = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+
+				-- Restore the previous used input method state when the following events
+				-- are triggered, if you don't want to restore previous used im in Insert mode,
+				-- e.g. deprecated `disable_auto_restore = 1`, just let it empty
+				-- as `set_previous_events = {}`
+				set_previous_events = { "InsertEnter" },
+
+				-- Show notification about how to install executable binary when binary missed
+				keep_quiet_on_no_binary = false,
+
+				-- Async run `default_command` to switch IM or not
+				async_switch_im = true,
+			})
 		elseif vim.fn.executable("fcitx5-remote") == 1 then
-			-- fcitx5 need a manual config
-			vim.api.nvim_cmd({
-				[[ let g:im_select_get_im_cmd = ["fcitx5-remote"] ]],
-				[[ let g:im_select_default = '1' ]],
-				[[ let g:ImSelectSetImCmd = {
-			\ key ->
-			\ key == 1 ? ['fcitx5-remote', '-c'] :
-			\ key == 2 ? ['fcitx5-remote', '-o'] :
-			\ key == 0 ? ['fcitx5-remote', '-c'] :
-			\ execute("throw 'invalid im key'")
-			\ }
-			]],
-			}, { true, true, true })
+			require("im_select").setup({
+				-- IM will be set to `default_im_select` in `normal` mode
+				-- For Windows/WSL, default: "1033", aka: English US Keyboard
+				-- For macOS, default: "com.apple.keylayout.ABC", aka: US
+				-- For Linux, default:
+				--               "keyboard-us" for Fcitx5
+				--               "1" for Fcitx
+				--               "xkb:us::eng" for ibus
+				-- You can use `im-select` or `fcitx5-remote -n` to get the IM's name
+				default_im_select = "com.apple.keylayout.ABC",
+
+				-- Can be binary's name or binary's full path,
+				-- e.g. 'im-select' or '/usr/local/bin/im-select'
+				-- For Windows/WSL, default: "im-select.exe"
+				-- For macOS, default: "im-select"
+				-- For Linux, default: "fcitx5-remote" or "fcitx-remote" or "ibus"
+				default_command = "fcitx5-remote",
+
+				-- Restore the default input method state when the following events are triggered
+				set_default_events = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+
+				-- Restore the previous used input method state when the following events
+				-- are triggered, if you don't want to restore previous used im in Insert mode,
+				-- e.g. deprecated `disable_auto_restore = 1`, just let it empty
+				-- as `set_previous_events = {}`
+				set_previous_events = { "InsertEnter" },
+
+				-- Show notification about how to install executable binary when binary missed
+				keep_quiet_on_no_binary = false,
+
+				-- Async run `default_command` to switch IM or not
+				async_switch_im = true,
+			})
 		end
 	end,
 }
-
 tool["Civitasv/cmake-tools.nvim"] = {
 	lazy = true,
 	config = require("user.configs.tool.cmake-tools"),
@@ -60,6 +108,65 @@ if use_copilot then
 			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
+		keys = function()
+			local select = require("CopilotChat.select")
+			local telescope = require("CopilotChat.integrations.telescope")
+			local actions = require("CopilotChat.actions")
+
+			return {
+				{
+					"<leader>ccq",
+					function()
+						local input = vim.fn.input("Quick Chat: ")
+						if input ~= "" then
+							require("CopilotChat").ask(input, { selection = select.buffer })
+						end
+					end,
+					desc = "CopilotChat - Quick chat",
+				},
+				{
+					"<leader>ccq",
+					function()
+						local input = vim.fn.input("Quick Chat: ")
+						if input ~= "" then
+							require("CopilotChat").ask(input, { selection = select.visual })
+						end
+					end,
+					desc = "CopilotChat - Quick chat",
+					mode = "v",
+				},
+				{
+					"<leader>cch",
+					function()
+						telescope.pick(actions.help_actions(), { selection = select.buffer })
+					end,
+					desc = "CopilotChat - Help actions",
+				},
+				{
+					"<leader>cch",
+					function()
+						telescope.pick(actions.help_actions(), { selection = select.visual })
+					end,
+					desc = "CopilotChat - Help actions",
+					mode = "v",
+				},
+				{
+					"<leader>ccp",
+					function()
+						telescope.pick(actions.prompt_actions(), { selection = select.visual })
+					end,
+					desc = "CopilotChat - Prompt actions",
+				},
+				{
+					"<leader>ccp",
+					function()
+						telescope.pick(actions.prompt_actions(), { selection = select.visual })
+					end,
+					desc = "CopilotChat - Prompt actions",
+					mode = "v",
+				},
+			}
+		end,
 		config = function()
 			require("CopilotChat").setup({
 				debug = false, -- Enable debugging
@@ -95,6 +202,7 @@ else
 					temperature = 0,
 					top_p = 1,
 					n = 1,
+					-- stream = true,
 				},
 				openai_edit_params = {
 					model = "codellama:13b",
@@ -103,8 +211,41 @@ else
 					temperature = 0,
 					top_p = 1,
 					n = 1,
+					-- stream = true,
+				},
+				edit_with_instructions = {
+					diff = false,
+					keymaps = {
+						close = "<C-q>",
+						accept = "<C-y>",
+						toggle_diff = "<C-d>",
+						toggle_settings = "<C-o>",
+						toggle_help = "<C-h>",
+						cycle_windows = "<Tab>",
+						use_output_as_input = "<C-i>",
+					},
+				},
+				chat = {
+					keymaps = {
+						close = "<C-q>",
+					},
 				},
 			})
+		end,
+		keys = function()
+			return {
+				{
+					"<leader>ccq",
+					"<Cmd>ChatGPT<CR>",
+					desc = "Chat - Quick chat",
+				},
+				{
+					"<leader>ccq",
+					"<Cmd>ChatGPTEditWithInstructions<CR>",
+					desc = "CopilotChat - Quick chat",
+					mode = "v",
+				},
+			}
 		end,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -112,6 +253,13 @@ else
 			"folke/trouble.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
+	}
+	tool["TabbyML/vim-tabby"] = {
+		-- event = { "LspAttach" },
+		-- lazy = true,
+		config = function()
+			vim.g.tabby_keybinding_accept = "<C-l>"
+		end,
 	}
 end
 -- tool["postfen/clipboard-image.nvim"] = {
