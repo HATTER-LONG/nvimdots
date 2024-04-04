@@ -79,6 +79,40 @@ if use_copilot then
 			-- See Configuration section for rest
 		},
 	}
+else
+	tool["jackMort/ChatGPT.nvim"] = {
+		event = "BufReadPost",
+		lazy = true,
+		config = function()
+			require("chatgpt").setup({
+				api_host_cmd = "echo http://localhost:1234",
+				api_key_cmd = "echo 'lm-studio'",
+				openai_params = {
+					model = "codellama:13b",
+					frequency_penalty = 0,
+					presence_penalty = 0,
+					max_tokens = 300,
+					temperature = 0,
+					top_p = 1,
+					n = 1,
+				},
+				openai_edit_params = {
+					model = "codellama:13b",
+					frequency_penalty = 0,
+					presence_penalty = 0,
+					temperature = 0,
+					top_p = 1,
+					n = 1,
+				},
+			})
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"folke/trouble.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	}
 end
 -- tool["postfen/clipboard-image.nvim"] = {
 -- 	lazy = true,
