@@ -56,7 +56,7 @@ settings["dap_deps"] = function()
 		"python", -- Python (debugpy)
 	}
 end
-settings["use_copilot"] = false
+settings["use_copilot"] = true
 
 settings["disabled_plugins"] = {
 	"fatih/vim-go",
