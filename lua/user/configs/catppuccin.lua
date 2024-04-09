@@ -1,6 +1,6 @@
 return {
 	dim_inactive = {
-		enabled = false,
+		enabled = true,
 		-- Dim inactive splits/windows/buffers.
 		-- NOT recommended if you use old palette (a.k.a., mocha).
 		shade = "dark",
