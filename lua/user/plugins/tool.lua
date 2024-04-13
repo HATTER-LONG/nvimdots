@@ -254,11 +254,7 @@ else
 			"nvim-telescope/telescope.nvim",
 		},
 	}
-	-- "model": "bartowski/stable-code-instruct-3b-GGUF/stable-code-instruct-3b-Q5_K_M.gguf",
-	-- "max_tokens": 1024,
-	-- "temperature": 0,
-	-- "prompt": "<fim_prefix># add two param function\nde<fim_suffix>\nif __name__ == \"__main__\":\n    print(\"Hello World\")\n<fim_middle>",
-	-- "stream": true
+
 	tool["huggingface/llm.nvim"] = {
 		event = "BufReadPost",
 		lazy = true,
