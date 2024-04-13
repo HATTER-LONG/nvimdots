@@ -195,7 +195,7 @@ else
 				api_host_cmd = "echo http://localhost:1234",
 				api_key_cmd = "echo 'lm-studio'",
 				openai_params = {
-					model = "codellama:13b",
+					model = "Qwen/Qwen1.5-7B-Chat-GGUF/qwen1_5-7b-chat-q6_k.gguf",
 					frequency_penalty = 0,
 					presence_penalty = 0,
 					max_tokens = 300,
@@ -205,7 +205,7 @@ else
 					-- stream = true,
 				},
 				openai_edit_params = {
-					model = "codellama:13b",
+					model = "Qwen/Qwen1.5-7B-Chat-GGUF/qwen1_5-7b-chat-q6_k.gguf",
 					frequency_penalty = 0,
 					presence_penalty = 0,
 					temperature = 0,
@@ -254,6 +254,11 @@ else
 			"nvim-telescope/telescope.nvim",
 		},
 	}
+	-- "model": "bartowski/stable-code-instruct-3b-GGUF/stable-code-instruct-3b-Q5_K_M.gguf",
+	-- "max_tokens": 1024,
+	-- "temperature": 0,
+	-- "prompt": "<fim_prefix># add two param function\nde<fim_suffix>\nif __name__ == \"__main__\":\n    print(\"Hello World\")\n<fim_middle>",
+	-- "stream": true
 	tool["huggingface/llm.nvim"] = {
 		event = "BufReadPost",
 		lazy = true,
@@ -261,16 +266,29 @@ else
 			local llm = require("llm")
 			llm.setup({
 				api_token = nil, -- cf Install paragraph
-				model = "starcoder:3b", -- the model ID, behavior depends on backend
-				backend = "ollama", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-				url = "http://ubuntu.lan:8080/api/generate", -- the http url of the backend
+				model = "bartowski/stable-code-instruct-3b-GGUF/stable-code-instruct-3b-Q8_0.gguf", -- the model ID, behavior depends on backend
+				backend = "openai", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
+				url = "http://localhost:1234/v1/completions", -- the http url of the backend
 				tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
 				-- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
 				request_body = {
 					parameters = {
-						max_new_tokens = 60,
-						temperature = 0.2,
+						max_new_tokens = 20,
+						temperature = 0.05,
 						top_p = 0.95,
+					},
+					stop = {
+						"<fim_prefix>",
+						"<fim_suffix>",
+						"<fim_middle>",
+						"<|endoftext|>",
+						"\n\n",
+						"/src/",
+						"t.",
+						"#- coding: utf-8",
+						"```",
+						"def",
+						"class",
 					},
 				},
 				-- set this if the model supports fill in the middle
@@ -295,6 +313,7 @@ else
 				context_window = 8192, -- max number of tokens for the context window
 				enable_suggestions_on_startup = true,
 				enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
+				stream = true,
 			})
 		end,
 	}
