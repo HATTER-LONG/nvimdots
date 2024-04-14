@@ -57,7 +57,7 @@ settings["dap_deps"] = function()
 	}
 end
 settings["use_copilot"] = false
-
+settings["format_notify"] = false
 settings["disabled_plugins"] = {
 	"fatih/vim-go",
 	-- "simrat39/rust-tools.nvim",

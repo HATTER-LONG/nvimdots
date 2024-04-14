@@ -237,12 +237,18 @@ else
 				{
 					"<leader>ccq",
 					"<Cmd>ChatGPT<CR>",
-					desc = "Chat - Quick chat",
+					desc = "LocalChat - Quick chat",
 				},
 				{
 					"<leader>ccq",
 					"<Cmd>ChatGPTEditWithInstructions<CR>",
-					desc = "CopilotChat - Quick chat",
+					desc = "LocalChat - Quick chat",
+					mode = "v",
+				},
+				{
+					"<leader>cct",
+					"<Cmd>ChatGPTRun translateCN<CR>",
+					desc = "LocalChat - Translate to CN",
 					mode = "v",
 				},
 			}
