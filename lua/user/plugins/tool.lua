@@ -230,6 +230,8 @@ else
 						close = "<C-q>",
 					},
 				},
+
+				actions_paths = { "~/.config/nvim/actions.json" },
 			})
 		end,
 		keys = function()
@@ -261,7 +263,7 @@ else
 		},
 	}
 
-	tool["huggingface/llm.nvim"] = {
+	tool["HATTER-LONG/llm.nvim"] = {
 		event = "BufReadPost",
 		lazy = true,
 		config = function()
