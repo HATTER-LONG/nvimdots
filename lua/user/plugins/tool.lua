@@ -362,9 +362,4 @@ end
 -- 	end,
 -- }
 
-tool["ibhagwan/smartyank.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("user.configs.tool.smartyank"),
-}
 return tool
