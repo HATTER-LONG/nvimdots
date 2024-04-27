@@ -195,7 +195,7 @@ else
 				api_host_cmd = "echo http://localhost:1234",
 				api_key_cmd = "echo 'lm-studio'",
 				openai_params = {
-					model = "Qwen/Qwen1.5-7B-Chat-GGUF/qwen1_5-7b-chat-q6_k.gguf",
+					model = "Qwen/Qwen1.5-14B-Chat-GGUF/qwen1_5-14b-chat-q5_k_m.gguf",
 					frequency_penalty = 0,
 					presence_penalty = 0,
 					max_tokens = 300,
@@ -205,7 +205,7 @@ else
 					-- stream = true,
 				},
 				openai_edit_params = {
-					model = "Qwen/Qwen1.5-7B-Chat-GGUF/qwen1_5-7b-chat-q6_k.gguf",
+					model = "Qwen/Qwen1.5-14B-Chat-GGUF/qwen1_5-14b-chat-q5_k_m.gguf",
 					frequency_penalty = 0,
 					presence_penalty = 0,
 					temperature = 0,
