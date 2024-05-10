@@ -271,7 +271,7 @@ else
 			local llm = require("llm")
 			llm.setup({
 				api_token = nil, -- cf Install paragraph
-				model = "bartowski/stable-code-instruct-3b-GGUF/stable-code-instruct-3b-Q8_0.gguf", -- the model ID, behavior depends on backend
+				model = "second-state/StarCoder2-7B-GGUF/starcoder2-7b-Q5_K_M.gguf", -- the model ID, behavior depends on backend
 				backend = "openai", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
 				url = "http://localhost:1234/v1/completions", -- the http url of the backend
 				tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
@@ -283,6 +283,7 @@ else
 						top_p = 0.95,
 					},
 					stop = {
+						"<file_sep>",
 						"<fim_prefix>",
 						"<fim_suffix>",
 						"<fim_middle>",
@@ -303,6 +304,9 @@ else
 					middle = "<fim_middle>",
 					suffix = "<fim_suffix>",
 				},
+				tokenizer = {
+					repository = "bigcode/starcoder",
+				},
 				debounce_ms = 150,
 				accept_keymap = "<C-l>",
 				dismiss_keymap = "<C-\\>",
@@ -314,7 +318,6 @@ else
 					port = nil,
 					version = "0.5.2",
 				},
-				tokenizer = nil, -- cf Tokenizer paragraph
 				context_window = 8192, -- max number of tokens for the context window
 				enable_suggestions_on_startup = true,
 				enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
