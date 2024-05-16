@@ -277,11 +277,11 @@ else
 				tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
 				-- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
 				request_body = {
-					parameters = {
-						max_new_tokens = 20,
-						temperature = 0.05,
-						top_p = 0.95,
-					},
+					-- parameters = {
+					-- 	max_new_tokens = 60,
+					-- 	temperature = 0.05,
+					-- 	top_p = 0.95,
+					-- },
 					stop = {
 						"<file_sep>",
 						"<fim_prefix>",
@@ -319,7 +319,7 @@ else
 					version = "0.5.2",
 				},
 				context_window = 8192, -- max number of tokens for the context window
-				enable_suggestions_on_startup = true,
+				enable_suggestions_on_startup = false,
 				enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
 				stream = true,
 			})
