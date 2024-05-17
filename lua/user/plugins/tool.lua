@@ -82,21 +82,21 @@ tool["Civitasv/cmake-tools.nvim"] = {
 	ft = "cpp,c,cmake",
 }
 
-tool["folke/noice.nvim"] = {
-	-- lazy = true,
-	config = require("user.configs.tool.noice"),
-	opts = {
-		-- add any options here
-	},
-	dependencies = {
-		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-		"MunifTanjim/nui.nvim",
-		-- OPTIONAL:
-		--   `nvim-notify` is only needed, if you want to use the notification view.
-		--   If not available, we use `mini` as the fallback
-		"rcarriga/nvim-notify",
-	},
-}
+-- tool["folke/noice.nvim"] = {
+-- 	-- lazy = true,
+-- 	config = require("user.configs.tool.noice"),
+-- 	opts = {
+-- 		-- add any options here
+-- 	},
+-- 	dependencies = {
+-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+-- 		"MunifTanjim/nui.nvim",
+-- 		-- OPTIONAL:
+-- 		--   `nvim-notify` is only needed, if you want to use the notification view.
+-- 		--   If not available, we use `mini` as the fallback
+-- 		"rcarriga/nvim-notify",
+-- 	},
+-- }
 
 local use_copilot = require("core.settings").use_copilot
 if use_copilot then
@@ -264,73 +264,30 @@ else
 		},
 	}
 
-	tool["HATTER-LONG/llm.nvim"] = {
-		event = "BufReadPost",
-		lazy = true,
+	tool["Exafunction/codeium.nvim"] = {
+		-- event = "BufEnter",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 		config = function()
-			local llm = require("llm")
-			llm.setup({
-				api_token = nil, -- cf Install paragraph
-				model = "second-state/StarCoder2-7B-GGUF/starcoder2-7b-Q5_K_M.gguf", -- the model ID, behavior depends on backend
-				backend = "openai", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-				url = "http://localhost:1234/v1/completions", -- the http url of the backend
-				tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
-				-- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
-				request_body = {
-					-- parameters = {
-					-- 	max_new_tokens = 60,
-					-- 	temperature = 0.05,
-					-- 	top_p = 0.95,
-					-- },
-					stop = {
-						"<file_sep>",
-						"<fim_prefix>",
-						"<fim_suffix>",
-						"<fim_middle>",
-						"<|endoftext|>",
-						"\n\n",
-						"/src/",
-						"t.",
-						"#- coding: utf-8",
-						"```",
-						"def",
-						"class",
-					},
-				},
-				-- set this if the model supports fill in the middle
-				fim = {
-					enabled = true,
-					prefix = "<fim_prefix>",
-					middle = "<fim_middle>",
-					suffix = "<fim_suffix>",
-				},
-				tokenizer = {
-					repository = "bigcode/starcoder",
-				},
-				debounce_ms = 150,
-				accept_keymap = "<C-l>",
-				dismiss_keymap = "<C-\\>",
-				tls_skip_verify_insecure = false,
-				-- llm-ls configuration, cf llm-ls section
-				lsp = {
-					bin_path = nil,
-					host = nil,
-					port = nil,
-					version = "0.5.2",
-				},
-				context_window = 8192, -- max number of tokens for the context window
-				enable_suggestions_on_startup = false,
-				enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
-				stream = true,
-			})
+			require("codeium").setup({ enable_chat = true })
+			-- require("codeium").setup({})
+			-- vim.g.codeium_disable_bindings = 1
+			-- vim.keymap.set("i", "<C-e>", function()
+			-- 	return vim.fn["codeium#Accept"]()
+			-- end, { expr = true, silent = true })
+			-- vim.keymap.set("i", "<C-;>", function()
+			-- 	return vim.fn["codeium#CycleCompletions"](1)
+			-- end, { expr = true, silent = true })
+			-- vim.keymap.set("i", "<C-,>", function()
+			-- 	return vim.fn["codeium#CycleCompletions"](-1)
+			-- end, { expr = true, silent = true })
+			-- vim.keymap.set("i", "<C-\\>", function()
+			-- 	return vim.fn["codeium#Clear"]()
+			-- end, { expr = true, silent = true })
 		end,
 	}
-	-- tool["TabbyML/vim-tabby"] = {
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		vim.g.tabby_keybinding_accept = "<C-l>"
-	-- 	end,
-	-- }
 end
 -- tool["postfen/clipboard-image.nvim"] = {
 -- 	lazy = true,

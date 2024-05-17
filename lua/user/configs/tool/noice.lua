@@ -10,6 +10,7 @@ return function()
 			signature = {
 				enabled = false,
 			},
+			hover = { enabled = false },
 		},
 		-- you can enable a preset for easier configuration
 		presets = {
@@ -40,16 +41,25 @@ return function()
 				-- lua = false, -- to disable a format, set to `false`
 			},
 		},
+		-- notify = {
+		-- 	-- Noice can be used as `vim.notify` so you can route any notification like other messages
+		-- 	-- Notification messages have their level and other properties set.
+		-- 	-- event is always "notify" and kind can be any log level as a string
+		-- 	-- The default routes will forward notifications to nvim-notify
+		-- 	-- Benefit of using Noice for this is the routing and consistent history view
+		-- 	enabled = true,
+		-- 	view = "notify",
+		-- },
 		messages = {
 			-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 			-- This is a current Neovim limitation.
 			enabled = true, -- enables the Noice messages UI
-			-- view = "notify", -- default view for messages
 			view = "notify", -- default view for messages
-			view_error = "notify", -- view for errors
-			view_warn = "notify", -- view for warnings
-			view_history = "messages", -- view for :messages
-			view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+			-- view = "", -- default view for messages
+			view_error = "hover", -- view for errors
+			view_warn = "hover", -- view for warnings
+			-- view_history = "messages", -- view for :messages
+			-- view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
 		},
 		routes = {
 			{
@@ -69,4 +79,6 @@ return function()
 			-- },
 		},
 	})
+
+	vim.lsp.handlers["textDocument/signatureHelp"] = require("noice").signature
 end

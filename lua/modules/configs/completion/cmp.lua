@@ -103,6 +103,7 @@ return function()
 					latex_symbols = "[LTEX]",
 					luasnip = "[SNIP]",
 					spell = "[SPELL]",
+					codeium = "[AI]",
 				}, {
 					__index = function()
 						return "[BTN]" -- builtin/unknown source names
@@ -177,7 +178,7 @@ return function()
 			},
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
-			-- { name = "codeium" },
+			{ name = "codeium", priority = 9 },
 			-- { name = "cmp_tabnine" },
 		},
 		experimental = {
