@@ -265,7 +265,8 @@ else
 	}
 
 	tool["Exafunction/codeium.nvim"] = {
-		-- event = "BufEnter",
+		event = "BufReadPost",
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"hrsh7th/nvim-cmp",
