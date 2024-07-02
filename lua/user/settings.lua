@@ -63,9 +63,7 @@ settings["disabled_plugins"] = {
 	-- "simrat39/rust-tools.nvim",
 	"edluffy/specs.nvim",
 	"karb94/neoscroll.nvim",
-	-- "gelguy/wilder.nvim",
 	"ray-x/go.nvim",
 	"michaelb/sniprun",
-	"zbirenbaum/neodim"
 }
 return settings
