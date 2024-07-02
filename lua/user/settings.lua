@@ -65,5 +65,7 @@ settings["disabled_plugins"] = {
 	"karb94/neoscroll.nvim",
 	-- "gelguy/wilder.nvim",
 	"ray-x/go.nvim",
+	"michaelb/sniprun",
+	"zbirenbaum/neodim"
 }
 return settings
