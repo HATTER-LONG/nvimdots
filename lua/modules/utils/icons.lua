@@ -87,7 +87,7 @@ local data = {
 	},
 	ui = {
 		Accepted = "",
-		ArrowClosed = "",
+		ArrowClosed = ">",
 		ArrowOpen = "",
 		BigCircle = "",
 		BigUnfilledCircle = "",
