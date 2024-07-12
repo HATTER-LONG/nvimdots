@@ -101,7 +101,7 @@ return function()
 				},
 			},
 			ui = {
-				bar = { separator = "  " },
+				bar = { separator = " > " },
 				menu = { indicator = icons.ui.ArrowClosed },
 			},
 		},
