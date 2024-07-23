@@ -12,11 +12,17 @@ return function()
 						name = "Files",
 						tele_func = function(opts)
 							opts = opts or {}
-							if vim.fn.isdirectory(".git") == 1 then
-								builtin.git_files(opts)
-							else
-								builtin.find_files(opts)
-							end
+							-- if vim.fn.isdirectory(".git") == 1 then
+							-- 	builtin.git_files(opts)
+							-- else
+							builtin.find_files(opts)
+							-- end
+						end,
+					},
+					{
+						name = "Buffers",
+						tele_func = function()
+							builtin.buffers()
 						end,
 					},
 					{
@@ -29,12 +35,6 @@ return function()
 						name = "Oldfiles",
 						tele_func = function()
 							builtin.oldfiles()
-						end,
-					},
-					{
-						name = "Buffers",
-						tele_func = function()
-							builtin.buffers()
 						end,
 					},
 				},
@@ -84,6 +84,17 @@ return function()
 						name = "Diff current file with commit",
 						tele_func = function()
 							extensions.advanced_git_search.diff_commit_file()
+						end,
+					},
+					{
+						name = "Git Files",
+						tele_func = function(opts)
+							opts = opts or {}
+							if vim.fn.isdirectory(".git") == 1 then
+								builtin.git_files(opts)
+							else
+								builtin.find_files(opts)
+							end
 						end,
 					},
 				},

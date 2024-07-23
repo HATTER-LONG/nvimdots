@@ -26,7 +26,8 @@ return function()
 
 	vim.g.rainbow_delimiters = {
 		strategy = {
-			[""] = init_strategy(500),
+			[""] = require("rainbow-delimiters").strategy["global"],
+			-- [""] = init_strategy(500),
 			c = init_strategy(300),
 			cpp = init_strategy(300),
 			lua = init_strategy(500),
