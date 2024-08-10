@@ -65,5 +65,6 @@ settings["disabled_plugins"] = {
 	"karb94/neoscroll.nvim",
 	"ray-x/go.nvim",
 	"michaelb/sniprun",
+	"keaising/im-select.nvim",
 }
 return settings
