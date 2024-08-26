@@ -41,6 +41,7 @@ return function(options)
 		single_file_support = true,
 		cmd = {
 			"clangd",
+			-- "/Users/layton/Desktop/WorkSpace/Tools/usr/bin/clangd",
 			"-j=12",
 			"--enable-config",
 			"--background-index",

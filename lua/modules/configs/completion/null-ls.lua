@@ -17,6 +17,7 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 		btns.formatting.clang_format.with({
+			-- command = "/Users/layton/Desktop/WorkSpace/Tools/usr/bin/clang-format",
 			filetypes = { "c", "cpp", "objc", "objcpp", "cs", "java", "cuda", "proto" },
 			extra_args = formatter_args("clang_format"),
 		}),
