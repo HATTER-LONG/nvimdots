@@ -104,7 +104,6 @@ return function()
 					latex_symbols = "[LTEX]",
 					luasnip = "[SNIP]",
 					spell = "[SPELL]",
-					codeium = "[AI]",
 				}, {
 					__index = function()
 						return "[BTN]" -- builtin/unknown source names
@@ -135,7 +134,6 @@ return function()
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			-- ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
 			["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 			["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -196,7 +194,7 @@ return function()
 			},
 			{ name = "latex_symbols" },
 			{ name = "copilot" },
-			{ name = "codeium", priority = 15 },
+			-- { name = "codeium" },
 			-- { name = "cmp_tabnine" },
 		},
 		experimental = {
